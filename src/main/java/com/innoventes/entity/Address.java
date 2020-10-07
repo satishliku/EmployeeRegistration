@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,8 +32,8 @@ public class Address {
 	@NotBlank(message = "City is mandatory")
 	private String city;
 
-	@OneToMany(mappedBy = "addres",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<EmployeeAddress> empAddress;
+	@OneToMany(mappedBy = "addres",cascade = CascadeType.ALL)
+	private List<EmployeeAddress> employee;
 
 	public Long getId() {
 		return id;
@@ -68,15 +67,13 @@ public class Address {
 		this.city = city;
 	}
 
-	public List<EmployeeAddress> getEmpAddress() {
-		return empAddress;
+	public List<EmployeeAddress> getEmployee() {
+		return employee;
 	}
 
-	public void setEmpAddress(List<EmployeeAddress> empAddress) {
-		this.empAddress = empAddress;
+	public void setEmployee(List<EmployeeAddress> employee) {
+		this.employee = employee;
 	}
 
-	
-	
 	
 }

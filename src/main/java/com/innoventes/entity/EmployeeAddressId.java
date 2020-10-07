@@ -8,21 +8,17 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class EmployeeAddressId implements Serializable{
 
-	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Column(name="employee_Id")
 	private Long employeeId;
 	
 	@Column(name="address_Id")
 	private Long addressId;
 
-	public EmployeeAddressId() {}
-	public EmployeeAddressId(Long employeeId, Long addressId) {
-		super();
-		this.employeeId = employeeId;
-		this.addressId = addressId;
-	}
 	
 	public Long getEmployeeId() {
 		return employeeId;

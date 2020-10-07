@@ -3,7 +3,6 @@ package com.innoventes.entity;
 import javax.persistence.Column;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -43,6 +42,14 @@ public class EmployeeAddress {
 	@Column(name="address_Type")
 	private String addressType;
 
+	
+	public EmployeeAddress() {}
+	public EmployeeAddress(Employee employe, Address addres) {
+		super();
+		this.employe = employe;
+		this.addres = addres;
+	}
+
 	public Long getId() {
 		return Id;
 	}
@@ -57,22 +64,7 @@ public class EmployeeAddress {
 
 	public void setEmpAddrId(EmployeeAddressId empAddrId) {
 		this.empAddrId = empAddrId;
-	}
-
-	public Employee getEmploye() {
-		return employe;
-	}
-
-	public void setEmploye(Employee employe) {
-		this.employe = employe;
-	}
-
-	public Address getAddres() {
-		return addres;
-	}
-
-	public void setAddres(Address addres) {
-		this.addres = addres;
+		
 	}
 
 	public String getAddressType() {
@@ -83,7 +75,5 @@ public class EmployeeAddress {
 		this.addressType = addressType;
 	}
 
-	
-
-	
+		
 }

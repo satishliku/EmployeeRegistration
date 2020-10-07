@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,8 +32,8 @@ public class Employee {
 	@Nullable
 	private LocalDate dateOfBirth;
 	
-	@OneToMany(mappedBy = "employe",cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-	private List<EmployeeAddress> empAddress;
+	@OneToMany(mappedBy = "employe",cascade = CascadeType.ALL)
+	private List<EmployeeAddress> address;
 
 	public Long getId() {
 		return id;
@@ -62,12 +61,14 @@ public class Employee {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public List<EmployeeAddress> getEmpAddress() {
-		return empAddress;
+	public List<EmployeeAddress> getAddress() {
+		return address;
 	}
 
-	public void setEmpAddress(List<EmployeeAddress> empAddress) {
-		this.empAddress = empAddress;
+	public void setAddress(List<EmployeeAddress> address) {
+		this.address = address;
 	}
+
+	
 
 }
